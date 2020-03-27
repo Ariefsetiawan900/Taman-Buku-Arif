@@ -1,10 +1,28 @@
-import React, {Component} from 'react';
-import {Text} from 'react-native';
+import React, {Component} from 'react'
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native'
+import Header from '../Components/header/Header'
+import Popular from '../Components/popular/Popular'
+import BookList from '../Components/booklist/BookList'
+import Genre from '../Components/genre/Genre'
 
 class Home extends Component {
-    render() {
-        return <Text>MAS ARIF</Text>
+	render() {
+	    return (
+	<View style={styles.container}>
+        <Header />
+        <BookList />
+        <Genre />
+        <Popular />
+    </View>
+        )
     }
-}
+} 
 
-export default Home;
+export default Home
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: "white"
+    },
+})

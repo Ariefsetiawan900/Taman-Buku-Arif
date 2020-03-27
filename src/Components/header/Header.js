@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         paddingLeft: '15%',
         height: 38,
         backgroundColor: '#E5E6EE',
-        fontFamily: 'AirbnbCereal-Bold'
+        fontFamily: 'AirbnbCereal-Bold',
+        borderRadius: 25
     },
     searchIcon: {
         fontSize: 18,

@@ -10,9 +10,9 @@ class Genre extends Component {
         genre:[],
     }
     componentDidMount = () => {
-        this.getGenre()
+        this.getGenres()
     }
-    getGenre = () => {
+    getGenres = () => {
         Axios.get(URL_STRING)
             .then(({ data }) => {
                 this.setState({ genre: data.result})
@@ -23,8 +23,8 @@ class Genre extends Component {
         return (
             //<View style={{ alignItems: 'center'}}> sesuai genre
             <View style={[styles.cardContainer, {backgroundColor: item.color_genre}]}>
-                <Image style={{ width: 124.63, height: 180}} source={item.image_genre} />
-                <Text>{item.name_genre}</Text>
+                <Image style={{ width: 102, height: 100}} source={{ uri: item.image_genre}} />
+                <Text style={styles.textTitle}>{item.genre_name}</Text>
             </View>
         )
     }
@@ -44,42 +44,45 @@ export default Genre
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 1,
+
         marginTop: 5,
         marginLeft: 30,
-        backgroundColor:'grey',
+        // backgroundColor:'grey',
         flexDirection:'row',
-        //justifyContent: 'space-between',
         alignItems: 'center'
     },
-    // item:{
-    //     borderRadius: 20,
-    //     width:300,
-    //     height: 150,
-    //     marginRight: 30,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     justifyContent: 'space-around'
-    //}
+    item:{
+        borderRadius: 20,
+        width:300,
+        height: 150,
+        marginRight: 30,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    },
     cardContainer:{
         borderRadius: 20,
         width: 241,
         height:116,
         marginLeft:15,
         marginRight: 1,
-        flexDirection: 'row',
+        flexDirection: 'row-reverse',
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+       
     },
-    // genreContainer: {
-    //     flex: 1,
-    //     height: 100,
-    //     marginTop: 20,
-    //     marginBottom:20,
-    //     marginLeft: 30,
-    //     backgroundColor;'grey',
-    //     flexDirection:'row',
-    //     justifyContent: 'space-between',
-    //     alignItems: 'center'
-    // }
+    genreContainer: {
+        flex: 1,
+        height: 100,
+        marginTop: 20,
+        marginBottom:20,
+        marginLeft: 30,
+        backgroundColor: 'grey',
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    textTitle: {
+        color: 'white'
+    }
 })

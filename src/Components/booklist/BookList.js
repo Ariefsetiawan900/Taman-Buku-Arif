@@ -23,7 +23,7 @@ class BookList extends Component {
     getData = () =>{
         Axios.get(URL_STRING)
             .then(({ data }) =>{
-                this.setState({ library: data.data })
+                this.setState({ library: data.result })
             })
             .catch(err =>console.log(err));
     }
@@ -32,10 +32,10 @@ class BookList extends Component {
         return (
             <View>
                 <View style={styles.photoContainer}>         
-                    <Image style={{ width: 160, height: 200, borderRadius: 10 }} source={{ url: item.image}}/> 
+                    <Image style={{ width: 160, height: 200, borderRadius: 10 }} source={{  uri: item.image   }}/> 
                 </View>
                 <View style={styles.textContainer}>
-                    <Text ellipsizeMode="taile" numberOfLines={1} style={styles.title }>
+                    <Text ellipsizeMode="tail" numberOfLines={1} style={styles.title }>
                         {item.title} 
                     </Text>
                 </View>
@@ -51,7 +51,7 @@ class BookList extends Component {
                 data={this.state.library}
                 renderItem={this.renderItem}
                 // contentContainerStyle={{ paddingBotom: 200}}
-                numCoulumns={numColumns}
+                numColumns={numColumns}
                 />
             </View>
         )
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         alignItems:'center',
-        marginLeft: 20,
+        // marginLeft: 20,
     },
     photoContainer:{
         borderRadius:10,

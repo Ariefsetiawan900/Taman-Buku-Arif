@@ -32,7 +32,7 @@ class BookList extends Component {
         return (
             <View>
                 <View style={styles.photoContainer}>         
-                    <Image style={{ width: 160, height: 200, borderRadius: 10 }} source={{  uri: item.image   }}/> 
+                    <Image style={{ width: 160, height: 200, borderRadius: 10 }} source={{ uri: item.image }}/> 
                 </View>
                 <View style={styles.textContainer}>
                     <Text ellipsizeMode="tail" numberOfLines={1} style={styles.title }>

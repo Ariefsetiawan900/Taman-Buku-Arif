@@ -1,67 +1,63 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native'
-import arrow from '../Assets/Arrow.png'
-import  { login } from '../Redux/action/user'
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image} from 'react-native'
+import Arrow from '../Assets/Arrow.png'
+import  { register } from '../Redux/action/user'
 import { connect } from 'react-redux'
 
+class Register extends Component {
 
-class Login extends Component {
-
-    signup= () => {
-        this.props.navigation.navigate('Register')
+    signin = () => {
+        this.props.navigation.navigate('Login')
     }
-
-    state ={
+    state = {
+        username: "",
+        fullname: "",
         email: "",
         password: ""
-        // token: ""
-        //id: "" 
+        // dicek dulu di database
     }
-
-    postLogin = async () => {
-        const { email, password } = this.state
-        const user = { email, password}
-        this.props.dispatch(login(user, this.props.navigation))
+    postRegister = async () => {
+        const { username, fullname, email, password } = this.state
+        const user = { username, fullname, email, password}
+        this.props.dispatch(register(user, this.props.navigation))
     }
-
-        render() {
-            return (
-                <View style={styles.container}>
+    render() {
+        return (
+            <View style={styles.container}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Here To Get Welcomed !</Text>
                 </View>
                 <View style={styles.formContainer}>
+                    <TextInput onChangeText={e => { this.setState({ username: e}) }} style={styles.input} placeholder="Username" />
+                    <TextInput onChangeText={e => { this.setState({ fullname: e}) }} style={styles.input} placeholder="Full Name" />
                     <TextInput onChangeText={e => { this.setState({ email: e}) }} style={styles.input} placeholder="Email" />
                     <TextInput onChangeText={e => { this.setState({ password: e}) }} style={styles.input} placeholder="Password" secureTextEntry={true} />
                 </View>
                 <View style={styles.signContainer}>
-                    <Text style={styles.signin}>Sign In</Text>
-                    <TouchableOpacity onPress={event => this.postLogin(event)}>
+                    <Text style={styles.signin}>Sign Up</Text>
+                    <TouchableOpacity onPress={this.postRegister}>
                         <View style={styles.arrow}>
-                            <Image source={arrow} />
+                            <Image source={Arrow} />
                         </View>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableOpacity onPress={this.signup}>
-                        <Text style={styles.signup}>Sign up</Text>
+                    <TouchableOpacity onPress={this.signin}>
+                        <Text style={styles.signup}>Sign in</Text>
                     </TouchableOpacity>
                     <Text style={styles.signup}>Forgot Password</Text>
                 </View>
             </View>
-            )
-
-            
-        }
+        )
+    }
 }
-
-const mapStateToProps = user => {
+const mapStateToProps = user  => {
     return {
         user,
     }
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(Register)
 
 const styles = StyleSheet.create({
     container: {

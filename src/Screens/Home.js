@@ -20,7 +20,7 @@ class Home extends Component {
 	    return (
 	<View style={styles.container}>
         <Header />
-        <Genre />
+        <Genre onPress={this.booksByGenrePageHandlerS} />
         <Popular />
         <BookList onPress={this.detailPageHandler} /> 
     </View>

@@ -6,6 +6,7 @@ import Register from './src/Screens/Register'
 import store from './src/Redux/store'
 import Home from './src/Screens/Home'
 import BookDetail from './src/Screens/BookDetail'
+import BooksByGenre from './src/Screens/BooksByGenre'
 import { Provider } from 'react-redux'
 
 
@@ -35,6 +36,11 @@ class App extends Component {
       <Stack.Screen
       name="BookDetail"
       component={BookDetail}
+      options={{ headerShown: false }}
+      />
+        <Stack.Screen
+      name="BooksByGenre"
+      component={BooksByGenre}
       options={{ headerShown: false }}
       />
       </Stack.Navigator>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image} from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 // import { connect } from 'react-redux'
 import Axios from 'axios'
 
@@ -30,6 +30,7 @@ class BookList extends Component {
 
     renderItem = ({ item, index }) => {
         return (
+            <TouchableOpacity activeOpacity={0.6} onPress={() => this.props.onPress(item.id)}>
             <View>
                 <View style={styles.photoContainer}>         
                     <Image style={{ width: 160, height: 200, borderRadius: 10 }} source={{ uri: item.image }}/> 
@@ -40,6 +41,7 @@ class BookList extends Component {
                     </Text>
                 </View>
             </View>
+            </TouchableOpacity>
         )
     }
 

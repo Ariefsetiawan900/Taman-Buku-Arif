@@ -5,7 +5,9 @@ import Login from './src/Screens/Login'
 import Register from './src/Screens/Register'
 import store from './src/Redux/store'
 import Home from './src/Screens/Home'
+import BookDetail from './src/Screens/BookDetail'
 import { Provider } from 'react-redux'
+
 
 const Stack = createStackNavigator();
 
@@ -15,7 +17,7 @@ class App extends Component {
       <Provider store={store}>
       <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
       name="Login"
       component={Login}
       options={{ headerShown: false }}
@@ -24,10 +26,15 @@ class App extends Component {
       name="Register"
       component={Register}
       options={{ headerShown: false }}
-      />
+      /> */}
       <Stack.Screen
       name="Home"
       component={Home}
+      options={{ headerShown: false }}
+      />
+      <Stack.Screen
+      name="BookDetail"
+      component={BookDetail}
       options={{ headerShown: false }}
       />
       </Stack.Navigator>

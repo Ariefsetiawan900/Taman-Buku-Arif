@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontFamily: 'AirbnbVereal-Bold',
+        // fontFamily: 'AirbnbVereal-Bold',
         fontSize: 16,
     },
     search: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     },
     searchIcon: {
         fontSize: 18,
-        left: 50,
+        left: 60,
         zIndex: 1
     }
 })

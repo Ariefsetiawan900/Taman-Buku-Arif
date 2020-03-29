@@ -44,7 +44,7 @@ const BooksByGenre = props => {
     props.navigation.navigate('Home');
   };
   const detailPageHandler = id => {
-    props.navigation.navigate('Detail', {id: id});
+    props.navigation.navigate('BookDetail', {id: id});
   };
 
   const renderBooksItem = ({item, index}) => {

@@ -10,7 +10,7 @@ const BooksByGenreHeader = props => {
         <TouchableOpacity activeOpacity={1} onPress={props.onPress}>
           <Image source={Arrow} style={styles.backIcon} />
         </TouchableOpacity>
-        <Text style={styles.navbarTitle}> Test</Text>
+        <Text style={styles.navbarTitle}> Genre </Text>
         <Text style={styles.navbarTitle}>{''}</Text>
       </View>
     </View>

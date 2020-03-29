@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import { View, Text, StyleSheet, TextInput, Image } from 'react-native'
-// import Icon from 'react native-vector-icons/FontAwesome'
+import Icon from '../../Assets/search-icon.png'
 
 class Header extends Component {
     render() {
         return (
             <View style={styles.head}>
                 <Text style={styles.title}>BOOKZ</Text>
-                {/* <Icon name="search"style={styles.searchIcon} /> */}
+                <Image source={Icon} style={styles.searchIcon} />
                 <TextInput style={styles.search} placeholder="Search..." />
             </View>
         )

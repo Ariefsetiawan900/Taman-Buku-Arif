@@ -11,12 +11,13 @@ import {useRoute} from '@react-navigation/native';
 
 import Axios from 'axios';
 import BooksByGenreHeader from '../Components/header/BooksByGenreHeader';
-const URL_STRING = 'http://192.168.100.113:3009/api/v1/genre/';
+
+const URL_STRING = 'http://192.168.100.113:3009/api/v1/genres/';
 const BooksByGenre = props => {
   const route = useRoute();
-  const genreId = route.params.id;
-  console.log('id', genreId);
-  console.log('propsku', props.genreName);
+  const genreId = route.params.id_genre;
+  // console.log('id', genreId);
+  // console.log('', props.genreName);
 
   const [booksData, setBooksData] = useState([]);
 

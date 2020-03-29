@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import Arrow from '../../Assets/Back-Icon.png'
+import Arrow from '../../Assets/blackIcon.png'
 
 const BooksByGenreHeader = props => {
   console.log('props', props);
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   backIcon: {
     fontSize: 24,
     fontWeight: 'normal',
+    
   },
   navbarTitle: {
     fontSize: 24,

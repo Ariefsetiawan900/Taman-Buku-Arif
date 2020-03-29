@@ -11,7 +11,7 @@ import {useRoute} from '@react-navigation/native';
 
 import Axios from 'axios';
 import BooksByGenreHeader from '../Components/header/BooksByGenreHeader';
-const URL_STRING = 'http://192.168.100.113:3009/api/v1/genres';
+const URL_STRING = 'http://192.168.100.113:3009/api/v1/genre/';
 const BooksByGenre = props => {
   const route = useRoute();
   const genreId = route.params.id;
@@ -53,7 +53,7 @@ const BooksByGenre = props => {
           activeOpacity={0.6}
           onPress={() => detailPageHandler(item.id)}>
           <View style={[styles.photoContainer]}>
-            <Image style={styles.photoImage} source={{uri: item.imageURL}} />
+            <Image style={styles.photoImage} source={{uri: item.image}} />
           </View>
           <View style={styles.infoTextContainer}>
             <Text ellipsizeMode="tail" numberOfLines={1} style={styles.title}>
@@ -74,7 +74,7 @@ const BooksByGenre = props => {
         showsVerticalScrollIndicator={false}
         data={booksData}
         renderItem={renderBooksItem}
-        keyExtractor={item => String(item.id)}
+        keyExtractor={item => String(item.id_genre)}
       />
     </View>
   );

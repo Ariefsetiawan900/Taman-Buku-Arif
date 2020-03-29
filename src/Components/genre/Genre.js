@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SafeAreaView,View, Text, StyleSheet, Image } from 'react-native'
+import { SafeAreaView,View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Axios from 'axios'
 
 import { FlatList } from 'react-native-gesture-handler'
@@ -22,10 +22,15 @@ class Genre extends Component {
     renderItem = ({ item, index }) => {
         return (
             //<View style={{ alignItems: 'center'}}> sesuai genre
+            <TouchableOpacity
+            activeOpacity={0.6}
+            genreName={item.genre_name}
+            onPress={() => this.props.onPress(item.id_genre)}>
             <View style={[styles.cardContainer, {backgroundColor: item.color_genre}]}>
                 <Image style={{ width: 102, height: 100}} source={{ uri: item.image_genre}} />
                 <Text style={styles.textTitle}>{item.genre_name}</Text>
             </View>
+            </TouchableOpacity>
         )
     }
     render() {

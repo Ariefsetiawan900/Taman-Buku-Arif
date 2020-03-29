@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'red'
     },
     textContainer: {
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         width:160,
         marginBottom: 15,
     },

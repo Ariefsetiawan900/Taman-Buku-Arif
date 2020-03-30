@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
 import { SafeAreaView,View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Axios from 'axios'
+import { getGenre } from '../../Redux/action/genre'
+import { connect } from 'react-redux'
 
 import { FlatList } from 'react-native-gesture-handler'
+
 const URL_STRING = 'http://192.168.100.113:3009/api/v1/genre' //sesuai database
 
 class Genre extends Component {
     state = {
         genre:[],
+        
     }
     componentDidMount = () => {
         this.getGenres()
     }
-    getGenres = () => {
-        Axios.get(URL_STRING)
-            .then(({ data }) => {
-                this.setState({ genre: data.result})
+    // getGenres = () => {
+    //     Axios.get(URL_STRING)
+    //         .then(({ data }) => {
+    //             this.setState({ genre: data.result})
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+     getGenres = async () => {
+            await this.props.dispatch(getGenre())
+            this.setState({
+                genre: this.props.genre.genre.data.data.result
             })
-            .catch(err => console.log(err))
-    }
+        }
     renderItem = ({ item, index }) => {
         return (
             //<View style={{ alignItems: 'center'}}> sesuai genre
@@ -45,7 +55,13 @@ class Genre extends Component {
         )
     }
 }
-export default Genre
+const mapStateToProps = genre => {
+    return {
+        genre,
+    }
+}
+// export default Genre
+ export default connect(mapStateToProps)(Genre)
 
 const styles = StyleSheet.create({
     container: {

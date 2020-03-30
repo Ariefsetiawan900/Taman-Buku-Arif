@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
-// import { connect } from 'react-redux'
-import Axios from 'axios'
+import { connect } from 'react-redux'
+import { getBook } from '../../Redux/action/book'
+// import Axios from 'axios'
 
 import { FlatList } from 'react-native-gesture-handler'
-const URL_STRING = 'http://192.168.100.113:3009/api/v1/'
+// const URL_STRING = 'http://192.168.100.113:3009/api/v1/'
 
 //const mapStateToProps = (book) =>{
 //     return {
@@ -16,16 +17,17 @@ const numColumns = 2
 class BookList extends Component {
     state = {
         library: [],
+        page: 1
     }
     componentDidMount = () => {
         this.getData()
     }
-    getData = () =>{
-        Axios.get(URL_STRING)
-            .then(({ data }) =>{
-                this.setState({ library: data.result })
-            })
-            .catch(err =>console.log(err));
+    getData = async () =>{
+        await this.props.dispatch(getBook(this.state.page))
+        this.setState({
+            library:this.props.book.book.data.data.result
+        })
+           
     }
 
     renderItem = ({ item, index }) => {
@@ -60,7 +62,13 @@ class BookList extends Component {
     }
 }
 
-export default BookList
+const mapStateToProps = book =>{
+    return {
+        book,
+    }
+}
+
+export default connect(mapStateToProps) (BookList)
 
 
 const styles = StyleSheet.create({
